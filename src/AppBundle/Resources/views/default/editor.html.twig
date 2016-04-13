@@ -1,0 +1,50 @@
+{% extends '@App/base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href={{ asset('bundles/assets/css/codemirror.css') }}>
+{% endblock %}
+
+{% block javascripts %}
+    <script src={{ asset('bundles/assets/js/codemirror.js') }}></script>
+    <script src={{ asset('bundles/assets/js/modes/python/python.js') }}></script>
+
+    <script>
+        var editor = CodeMirror.fromTextArea(document.getElementById("txtEditArea"), {
+            mode: {name: "python",
+                version: 3,
+                singleLineStringErrors: false},
+            lineNumbers: true,
+            indentUnit: 4,
+            matchBrackets: true
+        });
+    </script>
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid" style="padding: 0pt;">
+        <div class="row">
+            <ol class="breadcrumb" style="background-color: #222; border: 0pt">
+                <li>
+                    <i class="fa fa-dashboard"></i> <a href={{ path('homepage') }}>Dashboard</a>
+                </li>
+                <li class="active">
+                    <i class="fa fa-file"></i> Editor
+                </li>
+            </ol>
+        </div>
+        <div class="row">
+            <!-- Page Heading -->
+            <div class="col-lg-12">
+                <h1 class="page-header" style="margin: 0pt">
+                    Editor
+                    <small>Language: python</small>
+                </h1>
+
+            </div>
+        </div>
+        <!-- /.row -->
+        <textarea id="txtEditArea" rows="4" cols="50"> </textarea>
+
+    </div>
+    <!-- /.container-fluid -->
+{% endblock %}
