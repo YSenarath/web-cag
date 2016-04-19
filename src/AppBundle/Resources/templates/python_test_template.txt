@@ -1,0 +1,35 @@
+import sys
+import unittest
+from source import *
+
+class FunctionalTests(unittest.TestCase):
+    currentResult = None # holds last result object passed to run method
+
+    @classmethod
+    def setResult(cls, amount, errors, failures, skipped):
+        cls.amount, cls.errors, cls.failures, cls.skipped = \
+            amount, errors, failures, skipped
+
+    def tearDown(self):
+        amount = self.currentResult.testsRun
+        errors = self.currentResult.errors
+        failures = self.currentResult.failures
+        skipped = self.currentResult.skipped
+        self.setResult(amount, errors, failures, skipped)
+
+    @classmethod
+    def tearDownClass(cls):
+        sys.stdout.write("#testResults total:" + str(cls.amount) +
+		";errors:" + str(len(cls.errors)) +
+		";failures:" + str(len(cls.failures)) +
+		";success:" + str(cls.amount - len(cls.errors) - len(cls.failures)) +
+		";skipped:" + str(len(cls.skipped)))
+
+    def run(self, result=None):
+        self.currentResult = result # remember result for use in tearDown
+        unittest.TestCase.run(self, result) # call superclass run method
+
+    #Tests
+
+if __name__ == '__main__':
+    unittest.main()

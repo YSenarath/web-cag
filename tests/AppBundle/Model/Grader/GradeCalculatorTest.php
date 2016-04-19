@@ -8,37 +8,41 @@
 
 namespace Tests\AppBundle\Model\Grader;
 
-
-use AppBundle\Model\Grader\GradeCalculator;
+use AppBundle\Model\Grader\ExecutePython;
 
 class GradeCalculatorTest extends \PHPUnit_Framework_TestCase
 {
+    private $g;
 
     /**
-     *
+     * GradeCalculatorTest constructor.
+     */
+    public function __construct()
+    {
+        global $g;
+        $g = new ExecutePython();
+    }
+
+
+    /**
+     * Test run python applications.
      */
     public function testRunPython()
     {
-        $g = new GradeCalculator();
-        $output = $g->runPython();
-        $this->assertContains("yasas", $output);
+        global $g;
+        $output = $g->runPython('print "Hello World!!"', 'script.py');
+        $this->assertContains("Hello World!!", $output['out']);
     }
 
     /**
-     *
+     * Test error output python applications.
      */
-    public function testRunSafty()
+    public function testErrorsInRunPython()
     {
-        $g = new GradeCalculator();
-        $this->assertEquals(1, 1);
-    }
-
-    /**
-     *
-     */
-    public function testRunPyPy()
-    {
-        $g = new GradeCalculator();
-        $this->assertEquals(1, 1);
+        global $g;
+        $output = $g->runPython('Print "Hello World!!"', 'script.py');
+        $err = $output['err'];
+        $this->assertNotEmpty($err);
+        $this->assertContains('SyntaxError', $err);
     }
 }
