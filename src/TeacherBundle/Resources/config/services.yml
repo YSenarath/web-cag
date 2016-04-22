@@ -1,0 +1,4 @@
+services:
+#    teacher.example:
+#        class: TeacherBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]

@@ -8,6 +8,7 @@
 
 namespace AppBundle\Model\Helper;
 
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\File\Exception\FileNotFoundException;
 
 class FileManager
@@ -37,9 +38,11 @@ class FileManager
     {
         // Create the file in the server - Open and write finally close
         $file_name = $this->source_destination . "\\" . $filename;
-        $file = fopen($file_name, "w");
-        fwrite($file, $content);
-        fclose($file);
+        $fileHandle = fopen($file_name, "w");
+        if (fwrite($fileHandle, $content) === FALSE) {
+            throw new Exception("Error: Unable to create files.");
+        }
+        fclose($fileHandle);
     }
 
     /**

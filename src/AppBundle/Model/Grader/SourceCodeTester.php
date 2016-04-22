@@ -12,9 +12,9 @@ namespace AppBundle\Model\Grader;
 abstract class SourceCodeTester
 {
     /**
-     * @param $script
-     * @param $test
+     * @param string $script
+     * @param string $test
      * @return float
      */
-    public abstract function gradeTestCases($script, $test);
+    public abstract function gradeScripOnTestCases(string $script, string $test);
 }

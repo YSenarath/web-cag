@@ -1,14 +1,16 @@
 import sys
 import unittest
-from source import *
+from source1 import *
 
 class FunctionalTests(unittest.TestCase):
     currentResult = None # holds last result object passed to run method
 
     @classmethod
     def setResult(cls, amount, errors, failures, skipped):
-        cls.amount, cls.errors, cls.failures, cls.skipped = \
-            amount, errors, failures, skipped
+        cls.amount = amount
+        cls.errors = errors
+        cls.failures = failures
+        cls.skipped = skipped
 
     def tearDown(self):
         amount = self.currentResult.testsRun

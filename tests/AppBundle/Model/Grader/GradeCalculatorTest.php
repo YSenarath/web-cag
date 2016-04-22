@@ -30,7 +30,7 @@ class GradeCalculatorTest extends \PHPUnit_Framework_TestCase
     public function testRunPython()
     {
         global $g;
-        $output = $g->runPython('print "Hello World!!"', 'script.py');
+        $output = $g->runPython('print("Hello World!!")', 'script.py');
         $this->assertContains("Hello World!!", $output['out']);
     }
 
