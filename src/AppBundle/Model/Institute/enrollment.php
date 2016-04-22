@@ -1,6 +1,5 @@
 <?php
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/Student.php');
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/Section.php');
+namespace AppBundle\Model\Institute;
 
 /**
  * @access public
@@ -45,7 +44,7 @@ class enrollment {
 
 	/**
 	 * @access public
-	 * @param Default_1.Student aUnnamed_Student_
+	 * @param Student aUnnamed_Student_
 	 * @return void
 	 * @ParamType aUnnamed_Student_ Default.Student
 	 * @ReturnType void
@@ -56,7 +55,7 @@ class enrollment {
 
 	/**
 	 * @access public
-	 * @return Default_1.Student
+	 * @return Student
 	 * @ReturnType Default.Student
 	 */
 	public function getUnnamed_Student_() {
@@ -65,7 +64,7 @@ class enrollment {
 
 	/**
 	 * @access public
-	 * @param Default_1.Section aUnnamed_Section_
+	 * @param Section aUnnamed_Section_
 	 * @return void
 	 * @ParamType aUnnamed_Section_ Default.Section
 	 * @ReturnType void
@@ -83,4 +82,3 @@ class enrollment {
 		return $this->_unnamed_Section_;
 	}
 }
-?>

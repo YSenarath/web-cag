@@ -1,33 +1,34 @@
 <?php
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/Attempt.php');
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/Student.php');
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/AssignmentQuestion.php');
+namespace AppBundle\Model\Institute;
 
 /**
  * @access public
  * @author Yasas
- * @package Default_1
  */
 class Answer {
 	/**
 	 * @AttributeType String
 	 */
 	private $_answer;
+
 	/**
 	 * @AttributeType float
 	 */
 	private $_grade;
+
 	/**
-	 * @AssociationType Default.Attempt
+	 * @AssociationType Attempt
 	 * @AssociationMultiplicity 1
 	 */
 	public $_unnamed_Attempt_;
+
 	/**
-	 * @AssociationType Default.Student
+	 * @AssociationType Student
 	 */
 	public $_write;
+
 	/**
-	 * @AssociationType Default.AssignmentQuestion
+	 * @AssociationType AssignmentQuestion
 	 */
 	public $_for_8;
 
@@ -78,4 +79,3 @@ class Answer {
 		// Not yet implemented
 	}
 }
-?>

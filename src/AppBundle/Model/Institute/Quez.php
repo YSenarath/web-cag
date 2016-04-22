@@ -1,8 +1,9 @@
 <?php
+namespace AppBundle\Model\Institute;
+
 /**
  * @access public
  * @author Yasas
- * @package Default_1
  */
 class Quez {
 	/**
@@ -16,7 +17,7 @@ class Quez {
 
 	/**
 	 * @access public
-	 * @return String
+	 * @return string
 	 * @ReturnType String
 	 */
 	public function getTextDescription() {
@@ -25,7 +26,7 @@ class Quez {
 
 	/**
 	 * @access public
-	 * @param String aTextDescription
+	 * @param string aTextDescription
 	 * @return void
 	 * @ParamType aTextDescription String
 	 * @ReturnType void
@@ -45,7 +46,7 @@ class Quez {
 
 	/**
 	 * @access public
-	 * @param String aTestCases
+	 * @param string aTestCases
 	 * @return void
 	 * @ParamType aTestCases String
 	 * @ReturnType void

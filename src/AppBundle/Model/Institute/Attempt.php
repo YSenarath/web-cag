@@ -1,12 +1,10 @@
 <?php
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/Student.php');
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/Assignment.php');
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/Answer.php');
+
+namespace AppBundle\Model\Institute;
 
 /**
  * @access public
  * @author Yasas
- * @package Default_1
  */
 class Attempt {
 	/**
@@ -87,4 +85,3 @@ class Attempt {
 		// Not yet implemented
 	}
 }
-?>

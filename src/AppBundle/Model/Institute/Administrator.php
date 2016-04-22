@@ -1,6 +1,6 @@
 <?php
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/Institute.php');
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/Person.php');
+
+namespace AppBundle\Model\Institute;
 
 /**
  * @access public
@@ -39,4 +39,3 @@ class Administrator extends Person {
 		// Not yet implemented
 	}
 }
-?>

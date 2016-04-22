@@ -1,4 +1,7 @@
 <?php
+
+namespace AppBundle\Model\Institute;
+
 /**
  * @access public
  * @author Yasas

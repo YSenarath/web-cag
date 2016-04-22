@@ -1,9 +1,5 @@
 <?php
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/Institute.php');
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/enrollment.php');
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/Attempt.php');
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/Answer.php');
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/Person.php');
+namespace AppBundle\Model\Institute;
 
 /**
  * @access public

@@ -1,13 +1,10 @@
 <?php
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/Section.php');
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/Teacher.php');
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/AssignmentQuestion.php');
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/Attempt.php');
+
+namespace AppBundle\Model\Institute;
 
 /**
  * @access public
  * @author Yasas
- * @package Default_1
  */
 class Assignment {
 	/**
@@ -23,23 +20,27 @@ class Assignment {
 	 */
 	private $_description;
 	private $_attribute;
+
 	/**
-	 * @AssociationType Default.Section
+	 * @AssociationType Section
 	 * @AssociationMultiplicity 1
 	 */
 	public $_has;
+
 	/**
-	 * @AssociationType Default.Teacher
+	 * @AssociationType Teacher
 	 */
 	public $_create;
+
 	/**
-	 * @AssociationType Default.AssignmentQuestion
+	 * @AssociationType AssignmentQuestion
 	 * @AssociationMultiplicity 1..*
 	 * @AssociationKind Composition
 	 */
 	public $_contains = array();
+
 	/**
-	 * @AssociationType Default.Attempt
+	 * @AssociationType Attempt
 	 */
 	public $_for_7;
 
@@ -92,8 +93,8 @@ class Assignment {
 
 	/**
 	 * @access public
-	 * @param String aDescription
-	 * @return void
+	 * @param String $aDescription
+	 * @internal param String $aDescription
 	 * @ParamType aDescription String
 	 * @ReturnType void
 	 */
@@ -126,4 +127,3 @@ class Assignment {
 		// Not yet implemented
 	}
 }
-?>

@@ -8,7 +8,6 @@ require_once(realpath(dirname(__FILE__)) . '/../Default_1/Section.php');
 /**
  * @access public
  * @author Yasas
- * @package Default_1
  */
 class Institute {
 	/**
@@ -16,17 +15,20 @@ class Institute {
 	 * @AssociationMultiplicity 0..*
 	 */
 	public $_create = array();
+	
 	/**
 	 * @AssociationType Default.Administrator
 	 * @AssociationMultiplicity 1
 	 */
 	public $_operate;
+	
 	/**
 	 * @AssociationType Default.Student
 	 * @AssociationMultiplicity 0..*
 	 * @AssociationKind Composition
 	 */
 	public $_unnamed_Student_ = array();
+	
 	/**
 	 * @AssociationType Default.Teacher
 	 * @AssociationMultiplicity 0..*
@@ -36,7 +38,7 @@ class Institute {
 
 	/**
 	 * @access public
-	 * @param Default_1.Teacher aTeacher
+	 * @param Teacher aTeacher
 	 * @ParamType aTeacher Default.Teacher
 	 */
 	public function addTeacher(Teacher $aTeacher) {
@@ -45,7 +47,7 @@ class Institute {
 
 	/**
 	 * @access public
-	 * @param Default_1.Student aStudent
+	 * @param Student aStudent
 	 * @ParamType aStudent Default.Student
 	 */
 	public function addStudent(Student $aStudent) {
@@ -63,7 +65,7 @@ class Institute {
 
 	/**
 	 * @access public
-	 * @param Default_1.Section aSection
+	 * @param Section aSection
 	 * @ParamType aSection Default.Section
 	 */
 	public function CreateSection(Section $aSection) {

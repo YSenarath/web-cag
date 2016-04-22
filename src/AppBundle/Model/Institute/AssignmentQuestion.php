@@ -1,9 +1,8 @@
 <?php
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/Assignment.php');
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/Teacher.php');
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/Answer.php');
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/Quez.php');
 
+namespace AppBundle\Model\Institute;
+
+use Quez;
 /**
  * @access public
  * @author Yasas
@@ -33,4 +32,3 @@ class AssignmentQuestion extends Quez {
 		// Not yet implemented
 	}
 }
-?>

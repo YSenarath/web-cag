@@ -1,47 +1,49 @@
 <?php
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/enrollment.php');
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/Course.php');
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/Institute.php');
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/Teacher.php');
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/Assignment.php');
+namespace AppBundle\Model\Institute;
 
 /**
  * @access public
  * @author Yasas
- * @package Default_1
  */
 class Section {
 	/**
 	 * @AttributeType String
 	 */
 	private $_year;
+
 	/**
 	 * @AttributeType String
 	 */
 	private $_semester;
+
 	/**
 	 * @AttributeType int
 	 */
 	private $_sectionID;
+
 	/**
 	 * @AssociationType Default.enrollment
 	 */
 	public $_unnamed_enrollment_;
+
 	/**
 	 * @AssociationType Default.Course
 	 * @AssociationMultiplicity 1
 	 */
 	public $_contains;
+
 	/**
 	 * @AssociationType Default.Institute
 	 * @AssociationMultiplicity 1
 	 */
 	public $_create;
+
 	/**
 	 * @AssociationType Default.Teacher
 	 * @AssociationMultiplicity 1
 	 */
 	public $_unnamed_Teacher_;
+	
 	/**
 	 * @AssociationType Default.Assignment
 	 * @AssociationMultiplicity 0..*

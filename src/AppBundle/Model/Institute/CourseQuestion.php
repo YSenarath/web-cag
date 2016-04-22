@@ -1,12 +1,10 @@
 <?php
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/Course.php');
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/Teacher.php');
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/Quez.php');
+
+namespace AppBundle\Model\Institute;
 
 /**
  * @access public
  * @author Yasas
- * @package Default_1
  */
 class CourseQuestion extends Quez {
 	/**
@@ -14,6 +12,7 @@ class CourseQuestion extends Quez {
 	 * @AssociationMultiplicity 1
 	 */
 	public $_contains;
+	
 	/**
 	 * @AssociationType Default.Teacher
 	 */
@@ -26,4 +25,3 @@ class CourseQuestion extends Quez {
 		// Not yet implemented
 	}
 }
-?>

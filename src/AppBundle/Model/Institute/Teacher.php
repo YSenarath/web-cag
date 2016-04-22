@@ -1,15 +1,9 @@
 <?php
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/Institute.php');
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/Section.php');
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/CourseQuestion.php');
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/AssignmentQuestion.php');
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/Course.php');
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/Person.php');
+namespace AppBundle\Model\Institute;
 
 /**
  * @access public
  * @author Yasas
- * @package Default_1
  */
 class Teacher extends Person {
 	/**

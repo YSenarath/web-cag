@@ -1,21 +1,22 @@
 <?php
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/CourseQuestion.php');
-require_once(realpath(dirname(__FILE__)) . '/../Default_1/Institute.php');
+
+namespace AppBundle\Model\Institute;
 
 /**
  * @access public
  * @author Yasas
- * @package Default_1
  */
 class Course {
 	private $_courseID;
 	private $_title;
+    
 	/**
 	 * @AssociationType Default.CourseQuestion
 	 * @AssociationMultiplicity 0..*
 	 * @AssociationKind Aggregation
 	 */
 	public $_contains = array();
+    
 	/**
 	 * @AssociationType Default.Institute
 	 */
@@ -57,12 +58,13 @@ class Course {
 		$this->_title = $aTitle;
 	}
 
-	/**
-	 * @access public
-	 * @param aCourseID
-	 */
-	public function Course($aCourseID) {
+
+    /**
+     * Course constructor.
+     * @param $aCourseID
+     * @return Course
+     */
+    public function Course($aCourseID) {
 		// Not yet implemented
 	}
 }
-?>
