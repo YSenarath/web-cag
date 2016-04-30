@@ -15,6 +15,6 @@ class Teacher extends Person {
      */
     public function getRole()
     {
-        return Array('ROLE_TEACHER');
+        return ['ROLE_TEACHER'];
     }
 }

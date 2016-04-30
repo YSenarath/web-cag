@@ -11,11 +11,10 @@ use Doctrine\ORM\Mapping as ORM;
 class Course
 {
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="course_id", type="integer")
+     * @ORM\Column(name="course_id", type="string", length=7)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $courseId;
 
@@ -26,10 +25,32 @@ class Course
      */
     private $title;
 
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="semester", type="integer")
+     */
+    private $semester;
+
+    /**
+     * Set courseId
+     *
+     * @param string $courseId
+     *
+     * @return Course
+     */
+    public function setCourseId($courseId)
+    {
+        $this->courseId = $courseId;
+
+        return $this;
+    }
+
     /**
      * Get courseId
      *
-     * @return integer
+     * @return string
      */
     public function getCourseId()
     {
@@ -58,5 +79,29 @@ class Course
     public function getTitle()
     {
         return $this->title;
+    }
+
+    /**
+     * Set semester
+     *
+     * @param integer $semester
+     *
+     * @return Course
+     */
+    public function setSemester($semester)
+    {
+        $this->semester = $semester;
+
+        return $this;
+    }
+
+    /**
+     * Get semester
+     *
+     * @return integer
+     */
+    public function getSemester()
+    {
+        return $this->semester;
     }
 }

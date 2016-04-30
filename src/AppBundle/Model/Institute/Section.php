@@ -21,12 +21,12 @@ class Section {
 	private $sectionId;
 
 	/**
-	 * @var int
+	 * @var string
 	 *
 	 * @ORM\ManyToOne(targetEntity="course")
 	 * @ORM\JoinColumn(name="course_id", referencedColumnName="course_id", nullable=false)
 	 */
-	private $courseId;
+	private $course;
 
 	/**
 	 * @var int
@@ -35,16 +35,16 @@ class Section {
 	 */
 	private $year;
 
-	/**
-	 * @var int
-	 *
-	 * @ORM\Column(name="semester", type="integer")
-	 */
-	private $semester;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="batch_id", type="string", length=20)
+     */
+    private $batch;
 
 	/**
 	 * @ORM\OneToOne(targetEntity="teacher")
-	 * @ORM\JoinColumn(name="teacher_id", referencedColumnName="username", nullable=false)
+	 * @ORM\JoinColumn(name="teacher_id", referencedColumnName="username")
 	 */
 	private $teacher;
 
@@ -83,39 +83,39 @@ class Section {
     }
 
     /**
-     * Set semester
+     * Set batch
      *
-     * @param integer $semester
+     * @param string $batch
      *
      * @return Section
      */
-    public function setSemester($semester)
+    public function setBatch($batch)
     {
-        $this->semester = $semester;
+        $this->batch = $batch;
 
         return $this;
     }
 
     /**
-     * Get semester
+     * Get batch
      *
-     * @return integer
+     * @return string
      */
-    public function getSemester()
+    public function getBatch()
     {
-        return $this->semester;
+        return $this->batch;
     }
 
     /**
      * Set courseId
      *
-     * @param \AppBundle\Model\Institute\Course $courseId
+     * @param \AppBundle\Model\Institute\course $course
      *
      * @return Section
      */
-    public function setCourseId(Course $courseId)
+    public function setCourse(Course $course)
     {
-        $this->courseId = $courseId;
+        $this->course = $course;
 
         return $this;
     }
@@ -123,21 +123,21 @@ class Section {
     /**
      * Get courseId
      *
-     * @return \AppBundle\Model\Institute\Course
+     * @return \AppBundle\Model\Institute\course
      */
-    public function getCourseId()
+    public function getCourse()
     {
-        return $this->courseId;
+        return $this->course;
     }
 
     /**
      * Set teacher
      *
-     * @param \AppBundle\Model\Institute\Teacher $teacher
+     * @param \AppBundle\Model\Institute\teacher $teacher
      *
      * @return Section
      */
-    public function setTeacher(Teacher $teacher)
+    public function setTeacher(Teacher $teacher = null)
     {
         $this->teacher = $teacher;
 
@@ -147,7 +147,7 @@ class Section {
     /**
      * Get teacher
      *
-     * @return \AppBundle\Model\Institute\Teacher
+     * @return \AppBundle\Model\Institute\teacher
      */
     public function getTeacher()
     {

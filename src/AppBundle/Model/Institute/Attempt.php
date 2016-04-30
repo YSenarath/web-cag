@@ -15,6 +15,7 @@ class Attempt {
      *
      * @ORM\Column(name="attempt_id", type="integer", unique=true)
      * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $attemptId;
 

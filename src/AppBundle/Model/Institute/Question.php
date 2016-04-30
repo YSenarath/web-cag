@@ -14,6 +14,7 @@ class Question {
      *
      * @ORM\Column(name="question_id", type="integer")
      * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $questionId;
 
@@ -38,20 +39,6 @@ class Question {
      * @ORM\Column(name="test_cases", type="text")
      */
     private $testCases;
-
-    /**
-     * Set questionId
-     *
-     * @param integer $questionId
-     *
-     * @return Question
-     */
-    public function setQuestionId($questionId)
-    {
-        $this->questionId = $questionId;
-
-        return $this;
-    }
 
     /**
      * Get questionId
@@ -113,30 +100,6 @@ class Question {
 
     /**
      * Set courseId
-     *
-     * @param \AppBundle\Model\Institute\Course $course
-     *
-     * @return Question
-     */
-    public function setCourseId(Course $course)
-    {
-        $this->course = $course;
-
-        return $this;
-    }
-
-    /**
-     * Get courseId
-     *
-     * @return \AppBundle\Model\Institute\Course
-     */
-    public function getCourseId()
-    {
-        return $this->course;
-    }
-
-    /**
-     * Set course
      *
      * @param \AppBundle\Model\Institute\Course $course
      *

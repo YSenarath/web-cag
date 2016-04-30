@@ -25,8 +25,7 @@ class Assignment {
      * @ORM\Column(name="title", type="string", length=50)
      */
     private $title;
-
-
+    
     /**
      * @var string
      *
@@ -38,8 +37,7 @@ class Assignment {
      * @ORM\ManyToMany(targetEntity="question")
      * @ORM\JoinTable(name="assignment_question",
      *      joinColumns={@ORM\JoinColumn(name="assignment_id", referencedColumnName="assignment_id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="course_id", referencedColumnName="course_id"),
-     *          @ORM\JoinColumn(name="question_id", referencedColumnName="question_id")})
+     *      inverseJoinColumns={@ORM\JoinColumn(name="question_id", referencedColumnName="question_id")})
      */
     private $questions;
     

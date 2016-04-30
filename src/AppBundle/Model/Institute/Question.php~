@@ -12,19 +12,18 @@ class Question {
     /**
      * @var int
      *
-     * @ORM\ManyToOne(targetEntity="course")
-     * @ORM\Id
-     * @ORM\JoinColumn(name="course_id", referencedColumnName="course_id", nullable=false)
-     */
-    private $course;
-
-    /**
-     * @var int
-     *
      * @ORM\Column(name="question_id", type="integer")
      * @ORM\Id
      */
     private $questionId;
+
+    /**
+     * @var int
+     *
+     * @ORM\ManyToOne(targetEntity="course")
+     * @ORM\JoinColumn(name="course_id", referencedColumnName="course_id", nullable=false)
+     */
+    private $course;
 
     /**
      * @var string
@@ -132,6 +131,30 @@ class Question {
      * @return \AppBundle\Model\Institute\Course
      */
     public function getCourseId()
+    {
+        return $this->course;
+    }
+
+    /**
+     * Set course
+     *
+     * @param \AppBundle\Model\Institute\Course $course
+     *
+     * @return Question
+     */
+    public function setCourse(Course $course)
+    {
+        $this->course = $course;
+
+        return $this;
+    }
+
+    /**
+     * Get course
+     *
+     * @return \AppBundle\Model\Institute\course
+     */
+    public function getCourse()
     {
         return $this->course;
     }

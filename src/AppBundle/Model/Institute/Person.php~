@@ -9,7 +9,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * @ORM\MappedSuperclass
  */
-abstract class Person implements  UserInterface, Serializable
+abstract class Person implements UserInterface, Serializable
 {
     /**
      * @var string
@@ -26,6 +26,20 @@ abstract class Person implements  UserInterface, Serializable
      */
     private $password;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="first_name", type="string", length=50)
+     */
+    private $firstName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="last_name", type="string", length=50)
+     */
+    private $lastName;
+    
     /**
      * @var string
      *

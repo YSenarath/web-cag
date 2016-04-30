@@ -32,7 +32,7 @@ class Student extends Person {
 	 */
 	public function getRole()
 	{
-		return Array('ROLE_STUDENT');
+		return ['ROLE_STUDENT'];
 	}
 
     /**
@@ -67,5 +67,29 @@ class Student extends Person {
     public function getSections()
     {
         return $this->sections;
+    }
+
+    /**
+     * Set studentId
+     *
+     * @param string $studentId
+     *
+     * @return Student
+     */
+    public function setStudentId($studentId)
+    {
+        $this->studentId = $studentId;
+
+        return $this;
+    }
+
+    /**
+     * Get studentId
+     *
+     * @return string
+     */
+    public function getStudentId()
+    {
+        return $this->studentId;
     }
 }

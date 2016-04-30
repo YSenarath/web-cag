@@ -15,6 +15,6 @@ class Administrator extends Person {
      */
     public function getRole()
     {
-        return Array('ROLE_ADMIN');
+        return ['ROLE_ADMIN'];
     }
 }
