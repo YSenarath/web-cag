@@ -32,7 +32,7 @@ class Student extends Person {
 	 */
 	public function getRole()
 	{
-		return Array('ROLE_STUDENT');
+		return ['ROLE_STUDENT'];
 	}
 
     /**
