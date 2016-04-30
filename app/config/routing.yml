@@ -1,23 +1,18 @@
-session:
-    resource: "@SessionBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
 student:
     resource: "@StudentBundle/Controller/"
     type:     annotation
-    prefix:   /student/
 
 teacher:
     resource: "@TeacherBundle/Controller/"
     type:     annotation
-    prefix:   /teacher/
 
 admin:
     resource: "@AdminBundle/Controller/"
     type:     annotation
-    prefix:   /admin/
 
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+logout:
+    path: /logout

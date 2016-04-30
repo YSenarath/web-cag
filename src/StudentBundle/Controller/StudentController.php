@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class StudentController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/student")
      */
     public function indexAction()
     {
@@ -16,7 +16,7 @@ class StudentController extends Controller
     }
 
     /**
-     * @Route("/course/{courseId}/assignments")
+     * @Route("/student/course/{courseId}/assignments")
      * @param string $courseId
      * @return \Symfony\Component\HttpFoundation\Response
      */

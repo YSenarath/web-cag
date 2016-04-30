@@ -9,7 +9,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * @ORM\MappedSuperclass
  */
-abstract class Person implements UserInterface, Serializable
+abstract class Person // implements UserInterface, Serializable
 {
     /**
      * @var string

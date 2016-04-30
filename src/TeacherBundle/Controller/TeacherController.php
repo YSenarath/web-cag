@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class TeacherController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/teacher")
      */
     public function indexAction()
     {

@@ -15,23 +15,8 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $grader = $this->get('app.grade_calculator');
-        $val = $grader->runPython('print "Hello World!!"', 'script.py');
         // replace this example code with whatever you need
-        return $this->render('AppBundle:default:index.html.twig', ['grade' => $val]);
-    }
-
-    /**
-     * @Route("/admin", name="adminpage")
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function adminAction(Request $request)
-    {
-        $grader = $this->get('app.grade_calculator');
-        $val = $grader->runPython('print "Hello World!!"', 'script.py');
-        // replace this example code with whatever you need
-        return $this->render('AppBundle:default:index.html.twig', ['grade' => $val]);
+        return $this->render('AppBundle:default:index.html.twig');
     }
 
     /**
