@@ -1,0 +1,32 @@
+{% extends '@App/base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href={{ asset('bundles/assets/css/table-color-schemes.css') }}>
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid" style="padding: 0pt;">
+        <div class="row">
+            <ol class="breadcrumb" style="background-color: #222; border: 0pt">
+                <li class="active">
+                    <i class="fa fa-dashboard"></i> <a href={{ path('admin.viewCourses') }}>Courses</a>
+                </li>
+            </ol>
+        </div>
+        <div class="row">
+            <!-- Page Heading -->
+            <div class="col-lg-12">
+                <h1 class="page-header" style="margin: 0pt">
+                    Dashboard
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+        <div style="padding: 10pt">
+            <div class="list-group">
+                <a href="#" class="list-group-item">First item</a>
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+{% endblock %}

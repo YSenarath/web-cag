@@ -1,0 +1,31 @@
+<?php
+
+namespace AppBundle\Model\Institute;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Table(name="answer")
+ * @ORM\Entity
+ */
+class Answer {
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="answer_id", type="integer", unique=true)
+     * @ORM\Id
+     */
+    private $answerId;
+
+    /**
+     * @ORM\OneToOne(targetEntity="question")
+     * @ORM\JoinColumn(name="question_id", referencedColumnName="question_id")
+     */
+    private $question;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="script", type="text")
+     */
+    private $script;
+}

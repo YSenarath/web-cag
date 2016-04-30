@@ -6,17 +6,17 @@ session:
 student:
     resource: "@StudentBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /student/
 
 teacher:
     resource: "@TeacherBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /teacher/
 
 admin:
     resource: "@AdminBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /admin/
 
 app:
     resource: "@AppBundle/Controller/"

@@ -1,81 +1,103 @@
 <?php
+
 namespace AppBundle\Model\Institute;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @access public
- * @author Yasas
+ * @ORM\Table(name="answer")
+ * @ORM\Entity
  */
 class Answer {
-	/**
-	 * @AttributeType String
-	 */
-	private $_answer;
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="answer_id", type="integer", unique=true)
+     * @ORM\Id
+     */
+    private $answerId;
 
-	/**
-	 * @AttributeType float
-	 */
-	private $_grade;
+    /**
+     * @ORM\OneToOne(targetEntity="question")
+     * @ORM\JoinColumn(name="question_id", referencedColumnName="question_id")
+     */
+    private $question;
 
-	/**
-	 * @AssociationType Attempt
-	 * @AssociationMultiplicity 1
-	 */
-	public $_unnamed_Attempt_;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="script", type="text")
+     */
+    private $script;
 
-	/**
-	 * @AssociationType Student
-	 */
-	public $_write;
+    /**
+     * Set answerId
+     *
+     * @param integer $answerId
+     *
+     * @return Answer
+     */
+    public function setAnswerId($answerId)
+    {
+        $this->answerId = $answerId;
 
-	/**
-	 * @AssociationType AssignmentQuestion
-	 */
-	public $_for_8;
+        return $this;
+    }
 
-	/**
-	 * @access public
-	 * @return String
-	 * @ReturnType String
-	 */
-	public function getAnswer() {
-		return $this->_answer;
-	}
+    /**
+     * Get answerId
+     *
+     * @return integer
+     */
+    public function getAnswerId()
+    {
+        return $this->answerId;
+    }
 
-	/**
-	 * @access public
-	 * @param String aAnswer
-	 * @return void
-	 * @ParamType aAnswer String
-	 * @ReturnType void
-	 */
-	public function setAnswer($aAnswer) {
-		$this->_answer = $aAnswer;
-	}
+    /**
+     * Set script
+     *
+     * @param string $script
+     *
+     * @return Answer
+     */
+    public function setScript($script)
+    {
+        $this->script = $script;
 
-	/**
-	 * @access public
-	 * @return float
-	 * @ReturnType float
-	 */
-	public function getGrade() {
-		return $this->_grade;
-	}
+        return $this;
+    }
 
-	/**
-	 * @access public
-	 * @param float aGrade
-	 * @return void
-	 * @ParamType aGrade float
-	 * @ReturnType void
-	 */
-	public function setGrade($aGrade) {
-		$this->_grade = $aGrade;
-	}
+    /**
+     * Get script
+     *
+     * @return string
+     */
+    public function getScript()
+    {
+        return $this->script;
+    }
 
-	/**
-	 * @access public
-	 */
-	public function Answer() {
-		// Not yet implemented
-	}
+    /**
+     * Set question
+     *
+     * @param \AppBundle\Model\Institute\Question $question
+     *
+     * @return Answer
+     */
+    public function setQuestion(Question $question = null)
+    {
+        $this->question = $question;
+
+        return $this;
+    }
+
+    /**
+     * Get question
+     *
+     * @return \AppBundle\Model\Institute\Question
+     */
+    public function getQuestion()
+    {
+        return $this->question;
+    }
 }

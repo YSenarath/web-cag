@@ -2,40 +2,19 @@
 
 namespace AppBundle\Model\Institute;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
- * @access public
- * @author Yasas
- * @package Default_1
+ * @ORM\Entity
+ * @ORM\Table(name="administrator")
  */
 class Administrator extends Person {
-	/**
-	 * @AssociationType Default.Institute
-	 * @AssociationMultiplicity 1
-	 */
-	public $_operate;
-
-	/**
-	 * @access public
-	 */
-	public function Administrator() {
-		// Not yet implemented
-	}
-
-	/**
-	 * @access public
-	 * @param int aSectionID
-	 * @ParamType aSectionID int
-	 */
-	public function assignTeacherToCourse($aSectionID) {
-		// Not yet implemented
-	}
-
-	/**
-	 * @access public
-	 * @param int aSectionID
-	 * @ParamType aSectionID int
-	 */
-	public function removeTeacherFromCourse($aSectionID) {
-		// Not yet implemented
-	}
+    /**
+     * Returns the roles granted to the user.
+     * @return array (Role|string)[] The user roles
+     */
+    public function getRole()
+    {
+        return ['ROLE_ADMIN'];
+    }
 }

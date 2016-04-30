@@ -2,86 +2,185 @@
 
 namespace AppBundle\Model\Institute;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+
 /**
- * @access public
- * @author Yasas
+ * @ORM\Table(name="attempt")
+ * @ORM\Entity
  */
 class Attempt {
-	/**
-	 * @AttributeType float
-	 */
-	private $_gradeValue;
-	/**
-	 * @AttributeType int
-	 */
-	private $_attemptNo;
-	/**
-	 * @AssociationType Default.Student
-	 * @AssociationMultiplicity 1
-	 */
-	public $_unnamed_Student_;
-	/**
-	 * @AssociationType Default.Assignment
-	 */
-	public $_for_7;
-	/**
-	 * @AssociationType Default.Answer
-	 * @AssociationMultiplicity 0..*
-	 * @AssociationKind Aggregation
-	 */
-	public $_has = array();
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="attempt_id", type="integer", unique=true)
+     * @ORM\Id
+     */
+    private $attemptId;
 
-	/**
-	 * @access public
-	 * @return float
-	 * @ReturnType float
-	 */
-	public function getGradeValue() {
-		return $this->_gradeValue;
-	}
+    /**
+     * @ORM\OneToOne(targetEntity="student")
+     * @ORM\JoinColumn(name="student_id", referencedColumnName="student_id", nullable=false)
+     */
+    private $student;
 
-	/**
-	 * @access public
-	 * @param float aGradeValue
-	 * @return void
-	 * @ParamType aGradeValue float
-	 * @ReturnType void
-	 */
-	public function setGradeValue($aGradeValue) {
-		$this->_gradeValue = $aGradeValue;
-	}
 
-	/**
-	 * @access public
-	 * @return int
-	 * @ReturnType int
-	 */
-	public function getAttemptNo() {
-		return $this->_attemptNo;
-	}
+    /**
+     * @ORM\OneToOne(targetEntity="assignment")
+     * @ORM\JoinColumn(name="assignment_id", referencedColumnName="assignment_id", nullable=false)
+     */
+    private $assignment;
 
-	/**
-	 * @access public
-	 * @param int aAttemptNo
-	 * @return void
-	 * @ParamType aAttemptNo int
-	 * @ReturnType void
-	 */
-	public function setAttemptNo($aAttemptNo) {
-		$this->_attemptNo = $aAttemptNo;
-	}
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="attempt_no", type="integer")
+     */
+    private $attemptNo;
 
-	/**
-	 * @access public
-	 */
-	public function GradeAttempt() {
-		// Not yet implemented
-	}
+    /**
+     * @ORM\ManyToMany(targetEntity="answer")
+     * @ORM\JoinTable(name="attempt_answer",
+     *      joinColumns={@ORM\JoinColumn(name="attempt_id", referencedColumnName="attempt_id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="answer_id", referencedColumnName="answer_id")})
+     */
+    private $answers;
 
-	/**
-	 * @access public
-	 */
-	public function Attempt() {
-		// Not yet implemented
-	}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->answers = new ArrayCollection();
+    }
+
+    /**
+     * Set attemptId
+     *
+     * @param integer $attemptId
+     *
+     * @return Attempt
+     */
+    public function setAttemptId($attemptId)
+    {
+        $this->attemptId = $attemptId;
+
+        return $this;
+    }
+
+    /**
+     * Get attemptId
+     *
+     * @return integer
+     */
+    public function getAttemptId()
+    {
+        return $this->attemptId;
+    }
+
+    /**
+     * Set attemptNo
+     *
+     * @param integer $attemptNo
+     *
+     * @return Attempt
+     */
+    public function setAttemptNo($attemptNo)
+    {
+        $this->attemptNo = $attemptNo;
+
+        return $this;
+    }
+
+    /**
+     * Get attemptNo
+     *
+     * @return integer
+     */
+    public function getAttemptNo()
+    {
+        return $this->attemptNo;
+    }
+
+    /**
+     * Set student
+     *
+     * @param \AppBundle\Model\Institute\Student $student
+     *
+     * @return Attempt
+     */
+    public function setStudent(Student $student)
+    {
+        $this->student = $student;
+
+        return $this;
+    }
+
+    /**
+     * Get student
+     *
+     * @return \AppBundle\Model\Institute\student
+     */
+    public function getStudent()
+    {
+        return $this->student;
+    }
+
+    /**
+     * Set assignment
+     *
+     * @param \AppBundle\Model\Institute\Assignment $assignment
+     *
+     * @return Attempt
+     */
+    public function setAssignment(Assignment $assignment)
+    {
+        $this->assignment = $assignment;
+
+        return $this;
+    }
+
+    /**
+     * Get assignment
+     *
+     * @return \AppBundle\Model\Institute\assignment
+     */
+    public function getAssignment()
+    {
+        return $this->assignment;
+    }
+
+    /**
+     * Add answer
+     *
+     * @param \AppBundle\Model\Institute\Answer $answer
+     *
+     * @return Attempt
+     */
+    public function addAnswer(Answer $answer)
+    {
+        $this->answers[] = $answer;
+
+        return $this;
+    }
+
+    /**
+     * Remove answer
+     *
+     * @param \AppBundle\Model\Institute\Answer $answer
+     */
+    public function removeAnswer(Answer $answer)
+    {
+        $this->answers->removeElement($answer);
+    }
+
+    /**
+     * Get answers
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAnswers()
+    {
+        return $this->answers;
+    }
 }

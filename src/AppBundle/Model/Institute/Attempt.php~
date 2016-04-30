@@ -1,0 +1,48 @@
+<?php
+
+namespace AppBundle\Model\Institute;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Table(name="attempt")
+ * @ORM\Entity
+ */
+class Attempt {
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="attempt_id", type="integer", unique=true)
+     * @ORM\Id
+     */
+    private $attemptId;
+
+    /**
+     * @ORM\OneToOne(targetEntity="student")
+     * @ORM\JoinColumn(name="student_id", referencedColumnName="student_id", nullable=false)
+     */
+    private $student;
+
+
+    /**
+     * @ORM\OneToOne(targetEntity="assignment")
+     * @ORM\JoinColumn(name="assignment_id", referencedColumnName="assignment_id", nullable=false)
+     */
+    private $assignment;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="attempt_no", type="integer", unique=true)
+     */
+    private $attemptNo;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="answer")
+     * @ORM\JoinTable(name="attempt_answer",
+     *      joinColumns={@ORM\JoinColumn(name="attempt_id", referencedColumnName="attempt_id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="course_id", referencedColumnName="course_id"),
+     *          @ORM\JoinColumn(name="question_id", referencedColumnName="question_id")})
+     */
+    private $answers;
+}
